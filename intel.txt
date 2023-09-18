@@ -1,0 +1,66 @@
+Stock models: 
+
+StockSymbol: Stores information about stock symbols.
+StockPrice: Records historical stock price data.
+UserStockWatchlist: Allows users to create watchlists of stocks.
+UserStockAlert: Allows users to set price alerts for specific stocks.
+UserPortfolio: Represents user portfolios to track their holdings.
+TradeHistory: Records the history of user trades, including buy and sell transactions.
+
+
+
+Stock Symbols Routes:
+
+GET /api/stock-symbols/: Retrieve a list of all available stock symbols.
+GET /api/stock-symbols/{symbol}/: Retrieve details about a specific stock symbol.
+POST /api/stock-symbols/: Create a new stock symbol entry (admin or authorized user).
+PUT /api/stock-symbols/{symbol}/: Update information about a specific stock symbol (admin or authorized user).
+DELETE /api/stock-symbols/{symbol}/: Delete a stock symbol entry (admin or authorized user).
+Stock Prices Routes:
+
+GET /api/stock-prices/{symbol}/: Retrieve historical stock price data for a specific symbol.
+POST /api/stock-prices/{symbol}/: Create a new stock price entry (e.g., for real-time updates).
+User Routes (if implementing user features):
+
+POST /api/register/: Register a new user.
+POST /api/login/: Log in a user and obtain an authentication token.
+POST /api/logout/: Log out a user (requires authentication).
+GET /api/user-profile/: Retrieve user profile information (requires authentication).
+Watchlist Routes (if implementing user watchlists):
+
+GET /api/watchlists/: Retrieve the user's watchlists (requires authentication).
+POST /api/watchlists/: Create a new watchlist (requires authentication).
+GET /api/watchlists/{watchlist_id}/: Retrieve the details of a specific watchlist (requires authentication).
+PUT /api/watchlists/{watchlist_id}/: Update a watchlist (requires authentication).
+DELETE /api/watchlists/{watchlist_id}/: Delete a watchlist (requires authentication).
+GET /api/watchlists/{watchlist_id}/stocks/: Retrieve stocks within a watchlist (requires authentication).
+POST /api/watchlists/{watchlist_id}/stocks/: Add a stock to a watchlist (requires authentication).
+DELETE /api/watchlists/{watchlist_id}/stocks/{stock_id}/: Remove a stock from a watchlist (requires authentication).
+Alert Routes (if implementing price alerts):
+
+GET /api/alerts/: Retrieve user's price alerts (requires authentication).
+POST /api/alerts/: Create a new price alert (requires authentication).
+GET /api/alerts/{alert_id}/: Retrieve the details of a specific price alert (requires authentication).
+PUT /api/alerts/{alert_id}/: Update a price alert (requires authentication).
+DELETE /api/alerts/{alert_id}/: Delete a price alert (requires authentication).
+Portfolio Routes (if implementing user portfolios):
+
+GET /api/portfolios/: Retrieve user portfolios (requires authentication).
+POST /api/portfolios/: Create a new portfolio (requires authentication).
+GET /api/portfolios/{portfolio_id}/: Retrieve the details of a specific portfolio (requires authentication).
+PUT /api/portfolios/{portfolio_id}/: Update a portfolio (requires authentication).
+DELETE /api/portfolios/{portfolio_id}/: Delete a portfolio (requires authentication).
+GET /api/portfolios/{portfolio_id}/stocks/: Retrieve stocks within a portfolio (requires authentication).
+POST /api/portfolios/{portfolio_id}/stocks/: Add a stock to a portfolio (requires authentication).
+PUT /api/portfolios/{portfolio_id}/stocks/{stock_id}/: Update the details of a stock within a portfolio (requires authentication).
+DELETE /api/portfolios/{portfolio_id}/stocks/{stock_id}/: Remove a stock from a portfolio (requires authentication).
+Trade History Routes (if tracking user trades):
+
+GET /api/trade-history/: Retrieve a user's trade history (requires authentication).
+POST /api/trade-history/: Create a new trade entry (requires authentication).
+GET /api/trade-history/{trade_id}/: Retrieve the details of a specific trade (requires authentication).
+PUT /api/trade-history/{trade_id}/: Update a trade entry (requires authentication).
+DELETE /api/trade-history/{trade_id}/: Delete a trade entry (requires authentication).
+Real-Time Stock Data Routes (WebSocket or Server-Sent Events):
+
+These routes are used to establish WebSocket or SSE connections for real-time stock price updates. These routes may vary depending on the technology you choose for real-time updates.
