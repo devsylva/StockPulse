@@ -5,6 +5,7 @@ Stock Pulse is a real-time stock price tracking API that allows you to retrieve,
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Authentication](#authentication)
 - [Usage](#usage)

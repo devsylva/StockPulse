@@ -28,7 +28,7 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECREY_KEY")
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -58,6 +58,8 @@ INSTALLED_APPS = [
 ]
 
 
+AUTH_USER_MODEL = "authapi.User"
+
 # CORS Settings
 CORS_ALLOW_ALL_ORIGINS = False  # Set to True to allow all origins; use cautiously in production.
 CORS_ALLOW_CREDENTIALS = True   # Allow cookies and credentials in CORS requests.
@@ -83,7 +85,6 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
-    'channels.middleware.WebSocketMiddleware',
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -107,6 +108,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = "stockpulse.wsgi.application"
 
