@@ -110,7 +110,9 @@ TEMPLATES = [
 ]
 
 
-WSGI_APPLICATION = "stockpulse.wsgi.application"
+# WSGI_APPLICATION = "stockpulse.wsgi.application"
+ASGI_APPLICATION = "stockpulse.asgi.application"
+
 
 
 # Database
@@ -171,12 +173,10 @@ REST_FRAMEWORK = {
 # Configure the channel layer (using Redis as an example)
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
-        },
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
+
 
 
 # JWT configs
